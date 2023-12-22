@@ -1,0 +1,173 @@
+% AUTHOR.: Joe Lopes <lopes.id>
+% DATE...: 2023-12-22
+% LICENSE: MIT
+%%
+
+
+%%
+% CORE CONFIGS
+%
+\documentclass[11pt,letterpaper]{letter}
+\usepackage{geometry}
+\geometry{
+ letterpaper,
+ left=15mm,
+ right=15mm,
+ top=15mm,
+ bottom=15mm
+}
+\pagestyle{empty}
+
+% internationalization
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% default font
+\usepackage[scaled=0.90]{helvet}
+\usepackage[T1]{fontenc}
+\renewcommand\familydefault{\sfdefault}
+
+% misc
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}  % custom margins in listings
+
+
+%%
+% CONSTANTS AND COMMANDS
+%
+\definecolor{base}{HTML}{545454}
+\definecolor{light}{HTML}{808080}
+\definecolor{accent}{HTML}{0057e7}  % red:d62d20, green:008744, blue:0057e7
+\color{base}
+
+\renewcommand{\title}[1]{\textbf{\Huge #1}}
+
+\newcommand{\section}[1]{
+ \vspace{2mm}
+ \textbf{\textcolor{accent}{\uppercase{#1}}}
+ \vspace{-2mm}
+}
+
+\newcommand{\icon}[2]{
+ \textcolor{accent}{#1}\enspace#2
+}
+
+\newcommand{\header}[6]{
+ \begin{center}
+  \title{#1}
+  \vspace{-2mm}
+  
+  {\footnotesize \icon{\faMapMarker}{#2}}
+  \vspace{-2mm}
+  
+  {
+   \small
+   \icon{\faPhone}{#3}\quad
+   \icon{\faEnvelope}{\href{mailto:#4}{#4}}\quad
+   \icon{\faLinkedin}{\href{https://www.linkedin.com/in/#5}{#5}}\quad
+   \icon{\faHome}{\href{https://#6}{#6}}
+  }
+  \vspace{1mm}
+  \textcolor{light}{\hrule}
+ \end{center}
+}
+
+\newcommand{\organization}[5]{
+ \begin{tabular*}{\textwidth}[t]{l}
+  \begin{tabular}{p{0.97\textwidth}}
+   \textbf{#1} \textcolor{light}{--} #2 \hfill #3 \textcolor{light}{--} #4 \\
+   \textcolor{light}{\footnotesize #5}
+  \end{tabular}
+ \end{tabular*}
+}
+
+\newcommand{\role}[3]{
+ \vspace{-4mm}
+ \begin{flushright}
+  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+   \textbf{\textit{#1}} & \textcolor{light}{\small #2 -- #3} \\
+  \end{tabular*}
+ \end{flushright}
+ \vspace{-4mm}
+}
+
+\newenvironment{highlights}{
+ \vspace{-1mm}
+ \begin{itemize}[leftmargin=10mm,rightmargin=2mm]
+}{
+ \end{itemize}
+}
+\newcommand{\highlight}[1]{\item #1}
+
+\newcommand{\education}[4]{
+ \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+  \textbf{#1} & \textcolor{light}{#2 -- #3} \\
+  \multicolumn{2}{l}{#4}
+ \end{tabular*}
+}
+
+\newenvironment{skills}{
+ \vspace{1mm}
+ \begin{tabular*}{\textwidth}{rl}
+}{
+ \end{tabular*}
+}
+\newcommand{\skill}[2]{\textbf{#1} & #2 \\}
+
+
+%%
+% CONTENT
+%
+\begin{document}
+ \header
+  {Joe Logs}
+  {Orlando metropolitan area, Florida}
+  {+1 2223334444}
+  {joe.logs@lopes.id}
+  {jlopesjr}
+  {lopes.id}
+
+
+ \section{Work Experience}
+
+ \organization
+  {Acme}
+  {US, Remote}
+  {May 2022}
+  {Present}
+  {Acme (\href{https://lopes.id}{acme.lopes.id} \faLink) is a rapidly growing Infosec company, ensuring data integrity for over 10K clients through cutting-edge solutions.}
+ \role{Threat Detection Analyst}{July 2023}{Present}
+ \begin{highlights}
+  \highlight{Demonstrated improved incident response capabilities as measured by a 25\% decrease in resolution time, by establishing a dedicated cybersecurity incident response team and implementing automated incident detection tools.}
+  \highlight{Achieved compliance with industry standards as measured by passing two consecutive ISO 27001 audits, by developing and implementing a comprehensive information security management system.}
+ \end{highlights}
+ \role{Incident Response Analyst}{June 2022}{July 2023}
+ \begin{highlights}
+  \highlight{Enhanced cybersecurity resilience as measured by a 30\% reduction in security incidents, by implementing comprehensive employee training programs and conducting regular simulated phishing exercises.}
+  \highlight{Successfully mitigated data breach risks as measured by a 40\% decrease in unauthorized access incidents, by implementing encryption protocols and multi-factor authentication.}
+ \end{highlights}
+ 
+ 
+ \section{Education}
+
+ \education
+  {Bachelor of Computer Science}
+  {2015}
+  {2019}
+  {Acme University}
+
+
+ \section{Skills}
+
+ \begin{skills}
+  \skill
+   {Languages}
+   {English (work), Portuguese (native)}
+  \skill
+   {Soft}
+   {Communication, collaboration, adaptability, time management, leadership}
+ \end{skills}
+
+\end{document}
