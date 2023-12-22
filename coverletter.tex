@@ -1,0 +1,138 @@
+% AUTHOR.: Joe Lopes <lopes.id>
+% DATE...: 2023-12-22
+% LICENSE: MIT
+%%
+
+
+%%
+% CORE CONFIGS
+%
+\documentclass[11pt,letterpaper]{letter}
+\usepackage{geometry}
+\geometry{
+ letterpaper,
+ left=15mm,
+ right=15mm,
+ top=15mm,
+ bottom=15mm
+}
+\pagestyle{empty}
+
+% internationalization
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% default font
+\usepackage[scaled=0.95]{helvet}
+\usepackage[T1]{fontenc}
+\renewcommand\familydefault{\sfdefault}
+% columns
+\usepackage{paracol}
+\columnratio{0.26}
+\setlength{\columnsep}{4mm}
+% \setlength{\columnseprule}{0.5mm}  % uncomment for tshoot
+
+% misc
+\usepackage{xcolor}
+\usepackage{microtype}
+
+% dev
+\usepackage{lipsum}
+
+
+%%
+% CONSTANTS AND COMMANDS
+%
+\definecolor{base}{HTML}{545454}
+\definecolor{light}{HTML}{808080}
+\definecolor{accent}{HTML}{008744}
+\color{base}
+
+\renewcommand{\title}[1]{\textbf{\Huge \textsc{\textls[-80]{#1}}}}
+
+\newcommand{\header}[6]{
+ \vspace*{-5mm}
+ \title{\Huge #1}
+
+ \textcolor{accent}{\Large \textbf{\textsc{\textls[-50]{#2}}}}
+
+ \rule{0.1\linewidth}{0.5mm}
+ \vspace{5mm}
+
+ {
+  \small
+  \textbf{#1}
+  \vspace{-2mm}
+  
+  \textcolor{light}{#3}
+  \vspace{-2mm}
+  
+  \textcolor{light}{#4}
+  \vspace{-2mm}
+  
+  \textcolor{accent}{#5}
+  \vspace{-2mm}
+
+  \textcolor{accent}{#6}
+ }
+}
+
+\newcommand{\datestamp}[1]{
+ \rule{0.9\linewidth}{0.5mm}
+ 
+ \bigskip
+ \textcolor{light}{\uppercase{\small #1}}
+ \vspace{5mm}
+}
+
+\newcommand{\recipient}[4]{
+ \textbf{#1}\\
+ #2\\#3\\#4
+}
+
+\newcommand{\greetings}[1]{
+ \vspace{5mm}
+ Dear #1,
+ \vspace{2mm}
+}
+
+\renewcommand{\signature}[1]{
+ Sincerely,
+ 
+ \bigskip\bigskip\bigskip
+ \textcolor{accent}{\textbf{#1}}
+}
+
+
+%%
+% CONTENT
+%
+\begin{document}
+ \begin{paracol}{2}
+  \begin{leftcolumn}
+   \header
+    {Joe Logs}
+    {Threat Detection\\Analyst}
+    {Orlando, FL}
+    {US}
+    {+1 2223334444}
+    {joe.logs@lopes.id}
+  \end{leftcolumn}
+
+  \begin{rightcolumn}
+   \datestamp{22 December 2023}
+
+   \recipient
+    {Dennis Ritchie}
+    {Bell Laboratories}
+    {600 Mountain Avenue}
+    {Murray Hill, NJ 07974-0636}
+
+   \greetings{Mr. Ritchie}
+
+   \lipsum[1-3]
+
+   \signature{Joe Logs}
+  \end{rightcolumn}
+ \end{paracol}
+\end{document}
