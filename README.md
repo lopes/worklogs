@@ -1,5 +1,5 @@
 # Worklogs
-A minimalist résumé template in LaTeX with focus in work experience.
+Worklogs is a minimalist résumé and template in LaTeX with focus in work experience.  The template is accompanied by a cover letter template in the same style, which can be used optionally.
 
 ![plot](./screenshot.png)
 
@@ -30,13 +30,13 @@ Worklogs uses three base colors and you can configure them by changing the hexad
 The header is built with the `\header` command and it takes one parameter per information shown: Name, location, phone number, e-mail address, LinkedIn handler, and personal domain.  Example:
 
 ```tex
- \header
-  {Joe Logs}
-  {Orlando metropolitan area, Florida}
-  {+1 2223334444}
-  {joe.logs@lopes.id}
-  {jlopesjr}
-  {lopes.id}
+\header
+ {Joe Logs}
+ {Orlando metropolitan area, Florida}
+ {+1 2223334444}
+ {joe.logs@lopes.id}
+ {jlopesjr}
+ {lopes.id}
 ```
 
 New sections can be added with the `\section` command that takes one parameter for the section name.
@@ -50,49 +50,76 @@ Your work experience will be grouped by the organizations you was part of, the r
 Example:
 
 ```tex
- \organization
-  {Acme}
-  {US, Remote}
-  {May 2022}
-  {Present}
-  {Acme (acme.lopes.id) is a rapidly growing Infosec company, ensuring data ...}
- \role{Threat Detection Analyst}{July 2023}{Present}
- \begin{highlights}
-  \highlight{Demonstrated improved incident response capabilities as measured by a 25\% ...}
-  \highlight{Achieved compliance with industry standards as measured by passing two ...}
- \end{highlights}
- \role{Incident Response Analyst}{June 2022}{July 2023}
- \begin{highlights}
-  \highlight{Enhanced cybersecurity resilience as measured by a 30\% reduction ...}
-  \highlight{Successfully mitigated data breach risks as measured by a 40\% ...}
- \end{highlights}
+\organization
+ {Acme}
+ {US, Remote}
+ {May 2022}
+ {Present}
+ {Acme (acme.lopes.id) is a rapidly growing Infosec company, ensuring data ...}
+\role{Threat Detection Analyst}{July 2023}{Present}
+\begin{highlights}
+ \highlight{Demonstrated improved incident response capabilities as measured by a 25\% ...}
+ \highlight{Achieved compliance with industry standards as measured by passing two ...}
+\end{highlights}
+\role{Incident Response Analyst}{June 2022}{July 2023}
+\begin{highlights}
+ \highlight{Enhanced cybersecurity resilience as measured by a 30\% reduction ...}
+ \highlight{Successfully mitigated data breach risks as measured by a 40\% ...}
+\end{highlights}
 ```
 
 ### Education
 The `\education` command takes 4 parameters: Course name, start date, end date, and institution.
 
 ```tex
- \education
-  {Bachelor of Computer Science}
-  {2015}
-  {2019}
-  {Acme University}
+\education
+ {Bachelor of Computer Science}
+ {2015}
+ {2019}
+ {Acme University}
 ```
 
 ### Skills
 The `\skills` command creates a new environment for you to add skills with the `\skill` command, which takes two parameters: The group name and the skills list.  Example:
 
 ```tex
- \begin{skills}
-  \skill
-   {Languages}
-   {English (work), Portuguese (native)}
-  \skill
-   {Soft}
-   {Communication, collaboration, adaptability, time management, leadership}
- \end{skills}
+\begin{skills}
+\skill
+ {Languages}
+ {English (work), Portuguese (native)}
+\skill
+ {Soft}
+ {Communication, collaboration, adaptability, time management, leadership}
+\end{skills}
 ```
 
+
+## Cover Letter
+The cover letter template follows the same style from the résumé: Minimalist, same font face (Helvetica), and same color palette.  This template has three major blocks: Sender, letter header, and signature.
+
+The sender section is placed in the left column and is built with the `\sender` command, which receives the sender's Name, position, address, phone number, and email address.  Example:
+
+```tex
+\sender
+ {Joe Logs}
+ {Threat Detection\\Analyst}
+ {Orlando, FL\\US}
+ {+1 2223334444}
+ {joe.logs@lopes.id}
+```
+
+The letter header is built with the `\letterheader` gets more parameters, related to the date and receipt basically: Date, receipt's name, receipt's organization, receipt's address, and salutation.  Example:
+
+```tex
+\letterhead
+ {23 December 2023}
+ {Dennis Ritchie}
+ {Bell Laboratories}
+ {600 Mountain Avenue\\Murray Hill, NJ 07974-0636}
+ {Mr. Ritchie}
+```
+
+Finally, the signature section is built with the `\signature command` that gets two parameters, being the first optional: valediction (if omitted, the word `sincerely` will be used) and the sender's name.  An example is: `\signature{}{Joe Logs}`.
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
